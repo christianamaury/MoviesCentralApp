@@ -77,19 +77,29 @@ const styles = StyleSheet.create({
   },
 
   title: {
-
+    fontSize: 20, 
+    fontWeight:"bold",
+    marginBottom: 10,
+    color: "#0fff", 
   },
 
   description: {
+    fontSize: 20, 
+    fontWeight: "bold",
+    marginBottom: 10, 
+    color: "#0fff",
 
   },
 
   score: {
-
+      fontSize: 25, 
+      fontWeight: "bold",
+      marginBottom: 10, 
+      color: "green"
   },
 
   card: {
-
+      marginBottom: 10,
   },
 
 //Elements settings for the Image;
