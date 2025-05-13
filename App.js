@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 //If Added to the import below the TouchableHighlight I can modify the buttons;
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, ScrollView} from 'react-native';
 //Adding useSrare,useEffect for rendering purposes
 import {useState, useEffect} from "react"
 //Importing the API call; 
@@ -26,7 +26,10 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
+  //Adding Script View Component so users can scroll in the App;  
+  <ScrollView>
+
+      <View style={styles.container}>
       {/* This statusBar is a Component that's not from React Native.  */}
       <StatusBar style='light'/>
 
@@ -64,6 +67,7 @@ export default function App() {
       {/* <StatusBar style="auto" /> */}
 
     </View>
+  </ScrollView>
   );
 }
 
