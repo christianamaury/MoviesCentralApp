@@ -30,7 +30,7 @@ export default function App() {
     <View styles={styles.container}>
     
       {/*Adding Safearea Component*/}
-      <SafeAreaView> 
+      <SafeAreaView style={styles.safeArea}> 
 
       {/* //Adding Script View Component so users can scroll in the App;  */}
       <ScrollView>
@@ -57,7 +57,7 @@ export default function App() {
                     {/* Game Score Variable: */}
                     {game.score}
                 </Text>
-                
+
               </Image>
             </View>
           ))}
@@ -86,6 +86,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#3f4952',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  safeArea: {
+      margin: 13, 
+
   },
 
   title: {
