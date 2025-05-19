@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 //If Added to the import below the TouchableHighlight I can modify the buttons;
 //SafeareaView only works in iOS lol. 
-import { StyleSheet, Text, View, Image, Button, ScrollView, SafeAreaView, ActivityIndicator} from 'react-native';
+import { StyleSheet, Text, View, Image, Button, ScrollView, FlatList, SafeAreaView, ActivityIndicator} from 'react-native';
 //Adding useSrare,useEffect for rendering purposes
 import {useState, useEffect} from "react"
 //Importing the API call; 
@@ -12,9 +12,13 @@ import Constants from "expo-constants";
 import {useSafeAreaInsets} from 'react-native-safe-area-context'; 
 //Calling GameCard Component; 
 import {GameCard} from "./GameCard";
-
 //Local Image
 const icon = require('./assets/icon.png');
+
+//FlatList component doesn't receive a Children as I do with the ScrollView
+//Reference:  { games.map((game) => (
+    // <GameCard key={game.slug} game={game}/>
+    // ))}
 
 export function Main () {
 
@@ -50,14 +54,13 @@ export function Main () {
              <ActivityIndicator color={"#fff"}/>
           </View>
             
-          ) :  (
-
-            <ScrollView>
-                { games.map((game) => (
-                    <GameCard key={game.slug} game={game}/>
-                ))}
-            </ScrollView>
-          
+          ) : (
+            
+            <FlatList 
+            data={games}
+            keyExtractor={game => game.slug}
+            renderItem={({item}) => <GameCard game={item} />} />
+             
           )}
 
             {/* Image from the network; */}
