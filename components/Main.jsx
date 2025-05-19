@@ -39,8 +39,6 @@ export function Main () {
     <View style={{paddingTop: insents.top, paddingBottom: insents.bottom}}>
       {/*Adding Safearea Component*/}
      
-      {/* //Adding Script View Component so users can scroll in the App;  */}
-      <ScrollView>
           {/* This statusBar is a Component that's not from React Native.  */}
           {/* <StatusBar style='light'/> */}
 
@@ -49,11 +47,16 @@ export function Main () {
           {games.length === 0 ? (
         
           <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-             <ActivityIndicator/>
+             <ActivityIndicator color={"#fff"}/>
           </View>
             
           ) :  (
-          games.map((game) => <GameCard key={game.slug} game={game}/>)
+
+            <ScrollView>
+                { games.map((game) => (
+                    <GameCard key={game.slug} game={game}/>
+                ))}
+            </ScrollView>
           
           )}
 
@@ -66,8 +69,6 @@ export function Main () {
             {/* <Button title='Start Now' onPress={() => {alert('Welcome!')}}/> */}
 
             {/* <StatusBar style="auto" /> */}
-
-        </ScrollView>
     </View>
   );
 }
